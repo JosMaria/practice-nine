@@ -1,6 +1,6 @@
 package org.genesiscode.practicenine.view.row;
 
-public class RowResult {
+public class RowResultOne {
 
     private int piece;
     private double randomNumberOne;
@@ -13,9 +13,9 @@ public class RowResult {
     private double totalInspectionTime;
     private double standby;
 
-    public RowResult(int piece, double randomNumberOne, double timeBetweenArrivals, double pieceArrivalMinute,
-                     double inspectionStartMinute, double randomNumberTwo, double inspectionTime,
-                     double inspectionEndMinute, double totalInspectionTime, double standby) {
+    public RowResultOne(int piece, double randomNumberOne, double timeBetweenArrivals, double pieceArrivalMinute,
+                        double inspectionStartMinute, double randomNumberTwo, double inspectionTime,
+                        double inspectionEndMinute, double totalInspectionTime, double standby) {
         this.piece = piece;
         this.randomNumberOne = randomNumberOne;
         this.timeBetweenArrivals = timeBetweenArrivals;
