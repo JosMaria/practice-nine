@@ -6,6 +6,14 @@ import org.genesiscode.practicenine.view.row.RowResult;
 
 public class ExerciseOne {
 
+    private static ExerciseOne exerciseOne;
+
+    private ExerciseOne() {}
+
+    public synchronized static ExerciseOne getInstance() {
+        return exerciseOne == null ? new ExerciseOne() : exerciseOne;
+    }
+
     private ObservableList<RowResult> buildResultTable() {
         ObservableList<RowResult> list = FXCollections.observableArrayList();
         double randomNumberOne = 0.2962;

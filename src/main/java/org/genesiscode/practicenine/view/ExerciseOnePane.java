@@ -3,6 +3,7 @@ package org.genesiscode.practicenine.view;
 import javafx.geometry.Insets;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
+import org.genesiscode.practicenine.service.ExerciseOne;
 import org.genesiscode.practicenine.view.row.RowResult;
 
 import java.util.List;
@@ -10,10 +11,12 @@ import java.util.List;
 public class ExerciseOnePane extends MyPane {
 
     private static ExerciseOnePane exerciseOnePane;
-    private VBox mainPane;
+    private ExerciseOne exerciseOne;
     private TableView<RowResult> resultTable;
 
     private ExerciseOnePane() {
+        super("EJERCICIO 1");
+        exerciseOne = ExerciseOne.getInstance();
         loadControls();
         buildPane();
     }
@@ -42,11 +45,7 @@ public class ExerciseOnePane extends MyPane {
     }
 
     private void buildPane() {
-        mainPane = new VBox(resultTable);
+        mainPane = new VBox(10, title, resultTable);
         mainPane.setPadding(new Insets(10));
-    }
-
-    public VBox getMainPane() {
-        return mainPane;
     }
 }

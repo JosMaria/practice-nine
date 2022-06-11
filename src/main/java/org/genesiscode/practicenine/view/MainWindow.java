@@ -9,7 +9,8 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(new Label("Practica 9"));
+        MenuBarPane menu = MenuBarPane.getInstance();
+        Scene scene = new Scene(menu.getMainPane());
         stage.setTitle("Practica 9");
         stage.setScene(scene);
         stage.show();
