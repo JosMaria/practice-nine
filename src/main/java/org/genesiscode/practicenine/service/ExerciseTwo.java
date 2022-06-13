@@ -4,8 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.genesiscode.practicenine.view.row.RowResultTwo;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.PrimitiveIterator;
 
 public class ExerciseTwo {
 
@@ -25,26 +27,55 @@ public class ExerciseTwo {
     public ObservableList<RowResultTwo> getResultList() {
         ObservableList<RowResultTwo> list = FXCollections.observableArrayList();
         Iterator<Double> iterator = randomNumbers.iterator();
-        int assemblies = 1;
+        int assemblies = 1, accumulatedDefectiveParts = 0;
         double randomNumberOne, randomNumberTwo, randomNumberThree, randomNumberFour, randomNumberFive,
-                barDimensionA;
+                barDimensionA, barDimensionB, totalLength, percentageOfDefectiveParts;
+        boolean defective;
+
         int uniformMin = 45, uniformMax = 55;
+        int formParameter = 30, expectedValue = 4;
+
+        int lowerSpec = 70, topSpec = 90;
+
+
         while (iterator.hasNext()) {
             randomNumberOne = iterator.next();
-            barDimensionA = Decimal.getDecimal(4, uniformMin + ((uniformMax - uniformMin) * randomNumberOne));
+            barDimensionA = Decimal.getDecimal(2, uniformMin+((uniformMax-uniformMin)*randomNumberOne));
             randomNumberTwo = iterator.hasNext() ? iterator.next() : 0;
             randomNumberThree = iterator.hasNext() ? iterator.next() : 0;
             randomNumberFour = iterator.hasNext() ? iterator.next() : 0;
             randomNumberFive = iterator.hasNext() ? iterator.next() : 0;
+            barDimensionB = calculate(formParameter, expectedValue, randomNumberTwo, randomNumberThree, randomNumberFour, randomNumberFive);
+            totalLength = Decimal.getDecimal(2, barDimensionA + barDimensionB);
+            defective = ! (lowerSpec <= totalLength && totalLength <= topSpec);
+            if (defective) {
+                accumulatedDefectiveParts++;
+            }
+            percentageOfDefectiveParts = Decimal.getDecimal(2, (double) accumulatedDefectiveParts / assemblies * 100);
 
             RowResultTwo row = new RowResultTwo(assemblies, randomNumberOne, barDimensionA, randomNumberTwo,
-                    randomNumberThree, randomNumberFour, randomNumberFive, 0, 0, 0,
-                    0, false, 0, 0);
+                    randomNumberThree, randomNumberFour, randomNumberFive, barDimensionB, totalLength,
+                    lowerSpec, topSpec, defective, accumulatedDefectiveParts, percentageOfDefectiveParts);
             list.add(row);
             assemblies++;
         }
         return list;
     }
 
+    private double calculate(int formParameter, int expectedValue, double... randomNumbers) {
+        PrimitiveIterator.OfDouble iterator = Arrays.stream(randomNumbers).iterator();
+        double valueAnt = 1;
+        while (iterator.hasNext()) {
+            valueAnt *= (1 - iterator.next());
+        }
+        return Decimal.getDecimal(2, -(formParameter * Math.log(valueAnt) / expectedValue));
+    }
 
+    public static void main(String[] args) {
+/*
+        double calculate = calculate(0.0887, 0.3345, 0.6019, 0.5768);
+        System.out.println(-30 * calculate / 4);
+*/
+
+    }
 }
