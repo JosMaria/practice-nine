@@ -18,49 +18,9 @@ public class ExerciseOne {
         return exerciseOne == null ? new ExerciseOne() : exerciseOne;
     }
 
-    private ObservableList<RowResultOne> buildResultTable() {
-        ObservableList<RowResultOne> list = FXCollections.observableArrayList();
-        double randomNumberOne = 0.2962;
-        list.add(new RowResultOne(1, randomNumberOne, 0, 0, 0, 0, 0, 0, 0, 0));
-        return null;
-    }
-
-    public List<Double> getRandomNumbers() {
-        return randomNumbers;
-    }
-
     public void setRandomNumbers(List<Double> randomNumbers) {
         this.randomNumbers = randomNumbers;
     }
-
-    public static void main(String[] args) {
-        /*double randomNumber = 0.7831;
-        double deviation = 0.5;
-        double media = 4;
-
-        double sqrt = Math.sqrt(-2 * Math.log(1 - randomNumber));
-        System.out.println(sqrt);
-
-        double result = 2 * Math.PI * randomNumber;
-        System.out.println("resultado: " + result);
-        double cos = 0;
-        System.out.println("cos: " + cos);
-        System.out.println(((cos * sqrt) * deviation) + media);
-
-        System.out.println(
-                ((Math.sin(2 * Math.PI * randomNumber) * sqrt) * deviation) + media);*/
-        double randomNumber = 0.2883;
-        double deviation = 0.5;
-        double media = 4;
-        //System.out.println(calculate(randomNumber, deviation, media));
-    }
-
-
-    //0.7831 --> 4.18049474891427
-    //0.7831 --> 3.144674871064208
-
-    //3,606802485687306 cos
-    //3.3795585234058314 sin
 
     public ObservableList<RowResultOne> getResultList() {
         ObservableList<RowResultOne> list = FXCollections.observableArrayList();
@@ -87,7 +47,6 @@ public class ExerciseOne {
             list.add(row);
             piece++;
         }
-
         return list;
     }
 

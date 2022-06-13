@@ -1,9 +1,10 @@
 package org.genesiscode.practicenine.view;
 
-import javafx.scene.control.Button;
+import javafx.geometry.Insets;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 import org.genesiscode.practicenine.service.ExerciseTwo;
+import org.genesiscode.practicenine.service.Util;
 import org.genesiscode.practicenine.view.row.RowResultTwo;
 
 import java.util.List;
@@ -31,19 +32,22 @@ public class ExerciseTwoPane extends MyPane {
 
     @Override
     protected void click_btn_start() {
+        exerciseTwo.setRandomNumbers(Util.convertToList(areaRandomNumbers.getText()));
+        resultTable.setItems(exerciseTwo.getResultList());
         AssistPane.show(resultTable);
     }
 
     private void buildResultTablePane() {
         resultTable = new TableView<>();
+        int rnSize = 65;
         resultTable.getColumns().addAll(List.of(
                         column("Ensamble", "assemblies", 80),
-                        column("Rn", "randomNumberOne", 50),
+                        column("Rn", "randomNumberOne", rnSize),
                         column("Dimensiones\nde barra A", "barDimensionA", 100),
-                        column("Rn", "randomNumberTwo", 50),
-                        column("Rn", "randomNumberThree", 50),
-                        column("Rn", "randomNumberFour", 50),
-                        column("Rn", "randomNumberFive", 50),
+                        column("Rn", "randomNumberTwo", rnSize),
+                        column("Rn", "randomNumberThree", rnSize),
+                        column("Rn", "randomNumberFour", rnSize),
+                        column("Rn", "randomNumberFive", rnSize),
                         column("Dimensiones\nde barra B", "barDimensionB", 100),
                         column("Longitud\nbarra total", "totalLength", 100),
                         column("Especificacion\ninferior", "lowerSpecification", 120),
@@ -54,6 +58,7 @@ public class ExerciseTwoPane extends MyPane {
     }
 
     private void buildPane() {
-        mainPane = new VBox(10, title, btnStart);
+        mainPane = new VBox(10, title, inputPane, btnStart);
+        mainPane.setPadding(new Insets(20));
     }
 }
