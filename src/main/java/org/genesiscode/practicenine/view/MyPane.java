@@ -1,5 +1,6 @@
 package org.genesiscode.practicenine.view;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -22,7 +23,7 @@ public class MyPane {
 
         areaRandomNumbers = new TextArea();
         areaRandomNumbers.setWrapText(true);
-        areaRandomNumbers.setMaxSize(400, 100);
+        areaRandomNumbers.setMaxSize(300, 150);
         btnStart = new Button("Comenzar");
         btnStart.setOnAction(actionEvent -> click_btn_start());
         inputPane = new VBox(10, new Label("Numeros Aletorios"), areaRandomNumbers, btnStart);
