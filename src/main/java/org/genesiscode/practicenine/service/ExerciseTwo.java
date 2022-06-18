@@ -37,7 +37,6 @@ public class ExerciseTwo {
 
         int lowerSpec = 70, topSpec = 90;
 
-
         while (iterator.hasNext()) {
             randomNumberOne = iterator.next();
             barDimensionA = Decimal.getDecimal(2, uniformMin+((uniformMax-uniformMin)*randomNumberOne));
@@ -69,13 +68,5 @@ public class ExerciseTwo {
             valueAnt *= (1 - iterator.next());
         }
         return Decimal.getDecimal(2, -(formParameter * Math.log(valueAnt) / expectedValue));
-    }
-
-    public static void main(String[] args) {
-/*
-        double calculate = calculate(0.0887, 0.3345, 0.6019, 0.5768);
-        System.out.println(-30 * calculate / 4);
-*/
-
     }
 }

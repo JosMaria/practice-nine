@@ -11,14 +11,14 @@ public class RowResultThree {
     private int sale;
     private int finalInventory;
     private int lostSales;
-    private double orderCost;
-    private double missingCost;
-    private double maintenanceCost;
-    private double totalCost;
+    private String orderCost;
+    private String missingCost;
+    private String maintenanceCost;
+    private String totalCost;
 
     public RowResultThree(int day, int initialInventory, int deliveriesSupplier, int totalInventory,
                           double randomNumber, int demand, int sale, int finalInventory, int lostSales,
-                          double orderCost, double missingCost, double maintenanceCost, double totalCost) {
+                          String orderCost, String missingCost, String maintenanceCost, String totalCost) {
         this.day = day;
         this.initialInventory = initialInventory;
         this.deliveriesSupplier = deliveriesSupplier;
@@ -106,35 +106,35 @@ public class RowResultThree {
         this.lostSales = lostSales;
     }
 
-    public double getOrderCost() {
+    public String getOrderCost() {
         return orderCost;
     }
 
-    public void setOrderCost(double orderCost) {
+    public void setOrderCost(String orderCost) {
         this.orderCost = orderCost;
     }
 
-    public double getMissingCost() {
+    public String getMissingCost() {
         return missingCost;
     }
 
-    public void setMissingCost(double missingCost) {
+    public void setMissingCost(String missingCost) {
         this.missingCost = missingCost;
     }
 
-    public double getMaintenanceCost() {
+    public String getMaintenanceCost() {
         return maintenanceCost;
     }
 
-    public void setMaintenanceCost(double maintenanceCost) {
+    public void setMaintenanceCost(String maintenanceCost) {
         this.maintenanceCost = maintenanceCost;
     }
 
-    public double getTotalCost() {
+    public String getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(double totalCost) {
+    public void setTotalCost(String totalCost) {
         this.totalCost = totalCost;
     }
 }
