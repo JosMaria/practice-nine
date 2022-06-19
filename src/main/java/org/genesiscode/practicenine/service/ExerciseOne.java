@@ -22,12 +22,11 @@ public class ExerciseOne {
         this.randomNumbers = randomNumbers;
     }
 
-    public ObservableList<RowResultOne> getResultList() {
+    public ObservableList<RowResultOne> getResultList(double deviation, double mediaNormal, double mediaExponential) {
         ObservableList<RowResultOne> list = FXCollections.observableArrayList();
         Iterator<Double> iterator = randomNumbers.iterator();
         int piece = 1;
         double pieceArrivalMinute = 0, inspectionTime;
-        double deviation = 0.5, mediaNormal = 4, mediaExponential = 5;
 
         double randomNumberOne, randomNumberTwo, timeBetweenArrivals, inspectionEndMinute = 0, inspectionStartMinute, totalInspectionTime, standby;
         while (iterator.hasNext()) {
