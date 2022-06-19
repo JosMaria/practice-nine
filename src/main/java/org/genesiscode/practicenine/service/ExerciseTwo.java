@@ -24,16 +24,13 @@ public class ExerciseTwo {
         this.randomNumbers = randomNumbers;
     }
 
-    public ObservableList<RowResultTwo> getResultList() {
+    public ObservableList<RowResultTwo> getResultList(int uniformMin, int uniformMax, int formParameter, int expectedValue) {
         ObservableList<RowResultTwo> list = FXCollections.observableArrayList();
         Iterator<Double> iterator = randomNumbers.iterator();
         int assemblies = 1, accumulatedDefectiveParts = 0;
         double randomNumberOne, randomNumberTwo, randomNumberThree, randomNumberFour, randomNumberFive,
                 barDimensionA, barDimensionB, totalLength, percentageOfDefectiveParts;
         boolean defective;
-
-        int uniformMin = 45, uniformMax = 55;
-        int formParameter = 30, expectedValue = 4;
 
         int lowerSpec = 70, topSpec = 90;
 
