@@ -28,7 +28,7 @@ public class MenuBarPane implements EventHandler<ActionEvent> {
         paneDefault.setAlignment(Pos.CENTER);
         paneDefault.setPadding(new Insets(20));
         mainPane = new VBox(10, getMenuBar(), paneDefault);
-        mainPane.setPrefSize(650, 550);
+        mainPane.setPrefSize(650, 350);
     }
 
     public synchronized static MenuBarPane getInstance() {

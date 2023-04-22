@@ -16,7 +16,7 @@ import java.util.List;
 public class ExerciseOnePane extends MyPane {
 
     private static ExerciseOnePane exerciseOnePane;
-    private ExerciseOne exerciseOne;
+    private final ExerciseOne exerciseOne;
     private TableView<RowResultOne> resultTable;
     private TextField fieldMediaExponential, fieldMediaNormal, fieldDeviationNormal;
 
@@ -56,9 +56,21 @@ public class ExerciseOnePane extends MyPane {
 
     @Override
     protected void click_btn_start() {
-        exerciseOne.setRandomNumbers(Util.convertToList(areaRandomNumbers.getText()));
-        resultTable.setItems(exerciseOne.getResultList());
-        AssistPane.show(resultTable);
+        try {
+            double deviation = Double.parseDouble(fieldDeviationNormal.getText());
+            double mediaNormal = Double.parseDouble(fieldMediaNormal.getText());
+            double mediaExponential = Double.parseDouble(fieldMediaExponential.getText());
+            exerciseOne.setRandomNumbers(Util.convertToList(areaRandomNumbers.getText()));
+            resultTable.setItems(exerciseOne.getResultList(deviation, mediaNormal, mediaExponential));
+            AssistPane.show(resultTable);
+        } catch (Exception e) {
+            String message = """
+                    Los datos de entrada
+                    no cumplenel formato
+                        implementado
+                    """;
+            MessageBox.show(message);
+        }
     }
 
     private void buildResultTablePane() {
