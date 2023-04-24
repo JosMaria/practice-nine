@@ -22,7 +22,7 @@ public class MyPane {
 
         areaRandomNumbers = new TextArea();
         areaRandomNumbers.setWrapText(true);
-        areaRandomNumbers.setMaxSize(300, 150);
+        areaRandomNumbers.setMaxSize(300, 100);
         btnStart = new Button("Comenzar");
         btnStart.setOnAction(actionEvent -> click_btn_start());
         inputPane = new VBox(10, new Label("Numeros Aletorios"), areaRandomNumbers, btnStart);

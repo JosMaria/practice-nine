@@ -5,10 +5,12 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import org.genesiscode.practicenine.service.ExerciseOne;
 import org.genesiscode.practicenine.service.Util;
+import org.genesiscode.practicenine.view.row.MyBackground;
 import org.genesiscode.practicenine.view.row.RowResultOne;
 
 import java.util.List;
@@ -89,10 +91,11 @@ public class ExerciseOnePane extends MyPane {
     }
 
     private void buildPane() {
-        HBox pane = new HBox(10, inputPane, inputDataPane());
+        HBox pane = new HBox(50, inputDataPane(), inputPane);
         pane.setAlignment(Pos.TOP_CENTER);
         mainPane = new VBox(20, title, pane);
         mainPane.setPadding(new Insets(10));
         mainPane.setAlignment(Pos.CENTER);
+        mainPane.setBackground(MyBackground.getBackground());
     }
 }

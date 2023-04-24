@@ -21,14 +21,25 @@ public class MenuBarPane implements EventHandler<ActionEvent> {
     private static final String EXERCISE_THREE = "Ejercicio 3";
 
 
+    private static final String NAME = "henrry (copito) rodrigo llanos camacho";
+    private static final String TITLE = "Taller de simluacion";
+    private static final String NUMBER_OF_PROJECT = "Proyecto 3";
+
     private MenuBarPane() {
         Label title = new Label("Practica 9");
-        title.setFont(new Font("Gargi", 30));
-        VBox paneDefault = new VBox(title);
+        title.setFont(new Font("Gargi", 50));
+        VBox informationPane = new VBox(10,
+                new Label(String.format("Nombre: %s", NAME)),
+                new Label(String.format("Materia: %s", TITLE)),
+                new Label(String.format("Numero de proyecto: %s", NUMBER_OF_PROJECT)));
+        informationPane.setAlignment(Pos.CENTER);
+
+        VBox paneDefault = new VBox(30, title, informationPane);
+
         paneDefault.setAlignment(Pos.CENTER);
         paneDefault.setPadding(new Insets(20));
         mainPane = new VBox(10, getMenuBar(), paneDefault);
-        mainPane.setPrefSize(650, 350);
+        mainPane.setPrefSize(800, 350);
     }
 
     public synchronized static MenuBarPane getInstance() {

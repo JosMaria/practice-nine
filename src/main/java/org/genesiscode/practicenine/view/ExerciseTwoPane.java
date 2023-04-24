@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.genesiscode.practicenine.service.ExerciseTwo;
 import org.genesiscode.practicenine.service.Util;
+import org.genesiscode.practicenine.view.row.MyBackground;
 import org.genesiscode.practicenine.view.row.RowResultTwo;
 
 import java.util.List;
@@ -90,11 +91,12 @@ public class ExerciseTwoPane extends MyPane {
 
     private void buildPane() {
         VBox leftPane = new VBox(10, inputPane, btnStart);
-        HBox pane = new HBox(20, leftPane, buildInputPane());
+        HBox pane = new HBox(50, buildInputPane(), leftPane);
         pane.setAlignment(Pos.CENTER);
         mainPane = new VBox(20, title, pane);
         mainPane.setPadding(new Insets(10));
         mainPane.setAlignment(Pos.CENTER);
+        mainPane.setBackground(MyBackground.getBackground());
     }
 
     private VBox buildInputPane() {

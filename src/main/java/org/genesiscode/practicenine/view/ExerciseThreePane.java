@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.genesiscode.practicenine.service.ExerciseThree;
 import org.genesiscode.practicenine.service.Util;
+import org.genesiscode.practicenine.view.row.MyBackground;
 import org.genesiscode.practicenine.view.row.RowResultThree;
 
 import java.util.List;
@@ -99,13 +100,16 @@ public class ExerciseThreePane extends MyPane {
         paneFour.setAlignment(Pos.CENTER_RIGHT);
         HBox paneFive = new HBox(10, new Label("Costo de mantenimiento"), fieldMaintenanceCost);
         paneFive.setAlignment(Pos.CENTER_RIGHT);
-        return new VBox(10, paneOne, paneTwo, paneThree, paneFour, paneFive);
+        VBox pane = new VBox(10, paneOne, paneTwo, paneThree, paneFour, paneFive);
+        pane.setAlignment(Pos.CENTER);
+        return pane;
     }
 
     private void buildPane() {
         VBox rightPane = new VBox(10, inputPane, btnStart);
-        mainPane = new VBox(10, title, new HBox(30, rightPane, buildInputPane()));
+        mainPane = new VBox(10, title, new HBox(50, buildInputPane(), rightPane));
         mainPane.setPadding(new Insets(10));
         mainPane.setAlignment(Pos.CENTER);
+        mainPane.setBackground(MyBackground.getBackground());
     }
 }
